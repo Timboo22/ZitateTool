@@ -1,0 +1,94 @@
+
+<div class="parent">
+  <div class="div1">
+  </div>
+  <div class="div6">
+    <div class="input-icon-wrapper">
+      <input id="neuesZitatInput"  type="text" [(ngModel)]="zitat().zitateName" pInputText placeholder="Erstelle Zitat..." class="w-36 input-with-icon"/>
+      <a class="pi pi-arrow-right input-icon" (click)="ErstelleZitat()"></a>
+    </div>
+  </div>
+  <div class="div14">
+    <div class="topZitate">
+      <div class="text-center">Top Zitate 🔥</div>
+      <div class="table-center">
+        <p-table [value]="[{}]" class="no-border small-text ">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Platz</th>
+              <th>Zitat</th>
+              <th>Anzahl Likes</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td>1</td>
+              <td>Tim</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Leo</td>
+              <td>67</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Elias</td>
+              <td>40</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <div class="topZitate">
+      <div class="text-center">Am meisten Zitate 📈 </div>
+      <div class="table-center">
+        <p-table [value]="[{}]" class="no-border small-text ">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Platz</th>
+              <th>Person</th>
+              <th>Anzahl Zitate</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td>1</td>
+              <td>Tim</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Leo</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Elias</td>
+              <td>1</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+  <div class="div17">
+         @for (zitatee of gefundeneZitate(); track zitatee.id)
+          {
+            @if(zitatee.id % 2 == 1) {
+              <div class="container">
+                <img src="https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3975.png&w=350&h=254" alt="Avatar">
+                <p>{{zitatee.zitateName}}</p>
+              </div>
+            } @else {
+              <div class="container">
+                <img src="https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3975.png&w=350&h=254" alt="Avatar" class="right">
+                <p>{{zitatee.zitateName}}</p>
+              </div>
+            }
+
+          }
+
+  </div>
+</div>

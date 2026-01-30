@@ -1,0 +1,138 @@
+  html, body {
+   margin: auto;padding: 0;
+   height: 100%;
+  }
+
+.parent {
+    margin-top: 0;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 0;
+  }
+
+  .div1 {
+    margin: 0;
+    padding: 0;
+    grid-row: span 5 / span 5;
+    flex: 0 0 300px;
+  }
+
+  .div6 {
+    margin-top: 130px;
+    display: flex;
+    margin-left: 33vh;
+    grid-column: span 4 / span 4;
+    grid-column-start: 2;
+    grid-row-start: 5;
+  }
+
+  .div14 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 5;
+    grid-row-start: 1;
+  }
+
+  .div17 {
+    margin-right: 140px;
+    grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  #neuesZitatInput {
+    width: 20vw;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: block;}
+
+    #neuesZitatInput:hover {
+    border-color: #42005a;
+
+  }#neuesZitatInput:enabled {
+    border-color: #42005a; !important;
+  }
+
+  #neuesZitatInput:focus {
+    box-shadow: 0 4px 12px rgba(66, 0, 90, 0.3);
+  }
+
+  .input-icon-wrapper {
+    position: relative;
+  }
+
+  .input-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .input-icon:hover {
+    background-color: rgba(66, 0, 90, 0.4);
+    border-radius: 20px;
+    padding: 2px;
+  }
+
+  .topZitate {
+    padding: 5px;
+    box-shadow: 2px 3px 8px 2px rgba(66, 0, 90, 0.3);
+    border-radius: 10px;
+  }
+
+  .no-border.p-datatable {
+    border: none;
+    margin-bottom: 24px;
+  }
+
+  .no-border .p-datatable-thead > tr > th,
+  .no-border .p-datatable-tbody > tr > td {
+    border: none;
+  }
+
+  .text-center  {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .table-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .darker {
+    border-color: rgba(208, 68, 207, 0.4);
+    background-color: rgba(208, 68, 207, 0.22);
+  }
+
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+
+  .container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+  }
+
+

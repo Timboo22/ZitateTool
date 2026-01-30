@@ -1,0 +1,71 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background:  rgba(66, 0, 90, 0.9);;
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  border-radius: 0px 10px 10px 0px;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.center {
+  padding-bottom: 10px ;
+  border-bottom: 2px solid #8601ba;
+  text-align: center;
+  font-size: 23px;
+  font-family: Arial, sans-serif;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.menu-item {
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.menu-item:hover {
+  background: rgba(134, 1, 186, 0.53);
+}
+
+.menu-item i  {
+  margin-top: 3px;
+}
+
