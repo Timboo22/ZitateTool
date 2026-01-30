@@ -84,6 +84,7 @@ app.MapGet("/SuchBenutzer",
         return db.Benutzer.Where(s => s.Name.Contains(suchbegriff)).Take(3).ToList();
     }).DisableAntiforgery();
 
+//Hihi kleiner Hackerman war hier um Git zu Testen
 
 app.MapGet("/holeZitate",(ContextDb db) => db.Zitate.ToList());
 

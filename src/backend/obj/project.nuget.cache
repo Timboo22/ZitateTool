@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x6ke9Q2mvLs=",
+  "dgSpecHash": "cF1yWiu4ap0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\timlu\\RiderProjects\\SanoaAPI\\SanoaAPI\\SanoaAPI.csproj",
+  "projectFilePath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\SanoaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\timlu\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\timlu\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

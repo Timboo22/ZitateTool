@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SanoaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f0a730332b215b020dc65b3c6d99a0bde111b4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SanoaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SanoaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

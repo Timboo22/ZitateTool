@@ -3788,11 +3788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\timlu\\RiderProjects\\SanoaAPI\\SanoaAPI\\SanoaAPI.csproj",
+      "projectUniqueName": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\SanoaAPI.csproj",
       "projectName": "SanoaAPI",
-      "projectPath": "C:\\Users\\timlu\\RiderProjects\\SanoaAPI\\SanoaAPI\\SanoaAPI.csproj",
+      "projectPath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\SanoaAPI.csproj",
       "packagesPath": "C:\\Users\\timlu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\timlu\\RiderProjects\\SanoaAPI\\SanoaAPI\\obj\\",
+      "outputPath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\timlu\\AppData\\Roaming\\NuGet\\NuGet.Config"
