@@ -11,13 +11,10 @@ The project focuses on a clean architecture, fast APIs, and a modern Angular set
 
 ### Backend
 - **.NET (Minimal API)**
-- RESTful API (JSON)
-- Lightweight and fast endpoints
-- Easily extendable (EF Core, SQL, Auth, etc.)
+- Easily extendable (EF Core, SQL)
 
 ### Frontend
 - **Angular 21**
-- Standalone Components
 - Signals for state management
 - HttpClient for API communication
 - Modern template syntax (`@for`, `@if`)
@@ -35,40 +32,6 @@ The project focuses on a clean architecture, fast APIs, and a modern Angular set
 
 ---
 
-## 📂 Project Structure
-
-```text
-ZitateTool/
-├── backend/
-│   ├── ZitateTool.Api/
-│   │   ├── Program.cs
-│   │   ├── Endpoints/
-│   │   └── Models/
-│
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   ├── services/
-│   │   └── pages/
-│
-└── README.md
-```
-
----
-
-## ⚙️ Running the Backend (Minimal API)
-
-```bash
-cd backend/ZitateTool.Api
-dotnet restore
-dotnet run
-```
-
-➡️ The API will be available at  
-`https://localhost:5001` or `http://localhost:5000`
-
----
-
 ## 🖥️ Running the Frontend (Angular 21)
 
 ```bash
@@ -83,23 +46,6 @@ ng serve
 ---
 
 ## 🔌 API Examples
-
-### Get all quotes
-```http
-GET /api/zitate
-```
-
-### Create a new quote
-```http
-POST /api/zitate
-Content-Type: application/json
-
-{
-  "zitateName": "The journey is the reward",
-  "author": "Confucius"
-}
-```
-
 ---
 
 ## 🧠 Architecture Overview
@@ -124,18 +70,8 @@ Content-Type: application/json
 
 ---
 
-## 📌 Roadmap (Optional)
-
-- [ ] Edit & delete quotes  
-- [ ] Categories / tags  
-- [ ] User authentication  
-- [ ] Dark mode  
-- [ ] Docker & deployment  
-
----
-
 ## 👤 Author
 
 **Timboo22**  
-💻 Apprentice: Software Developer (Application Development)  
+💻 Apprentice: Software developer trainee (Application Development)  
 🚀 Focus: Web Development, APIs, Angular, .NET
