@@ -63,8 +63,7 @@ ng serve
 
 ## 🛠️ Requirements
 
-- **.NET SDK 8+**
-- **Node.js 18+**
+- **.NET SDK 10**
 - **Angular CLI**
 - Git
 
