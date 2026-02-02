@@ -11,7 +11,8 @@ import {HttpClient} from '@angular/common/http';
 import {Button} from 'primeng/button';
 import {FileUpload} from 'primeng/fileupload';
 import {Dialog} from 'primeng/dialog';
-import {test} from 'vitest';
+import {MessageService} from 'primeng/api';
+import {Toast} from 'primeng/toast';
 
 interface PersonenModel {
   Id: number;
@@ -30,22 +31,26 @@ interface SuchePersonenModel {
 @Component({
   selector: 'app-benutzer',
   imports: [ScrollPanelModule,
-    DatePickerModule, FormsModule, InputText, Select, InputGroup, InputGroupAddon, Textarea, Button, FileUpload, Dialog],
+    DatePickerModule, FormsModule, InputText, Select, InputGroup, InputGroupAddon, Textarea, Button, FileUpload, Dialog, Toast],
   templateUrl: './benutzer.html',
   styleUrl: './benutzer.css',
+  providers: [MessageService],
 })
 
 export class Benutzer {
 
   personenModelWritableSignal = signal<PersonenModel>({
     Id: 0,
-    Name: '-' ,
+    Name: '' ,
     Lehrjahr: 1,
     LieblingsZitat: '',
     AvatarFileName: '',
   });
 
-  constructor(private httpClient: HttpClient) {};
+  constructor(
+    private httpClient: HttpClient,
+    private messageService: MessageService,)
+  {};
 
   lehrjahre : number[] = [1 , 2 , 3] ;
 
@@ -57,6 +62,8 @@ export class Benutzer {
 
   keyWord = "https://www.shutterstock.com/image-vector/default-avatar-social-media-display-600nw-2632690107.jpg";
 
+  triggerNameValidator = false;
+
   gesuchteBenutzer = signal<SuchePersonenModel[]>([]);
   ngOnInit(): void {
     this.HoleExistierendeBenutzer();
@@ -65,6 +72,10 @@ export class Benutzer {
       this.httpClient.get<PersonenModel[]>('http://localhost:5202/holeExistierendenNutzer').subscribe((res : any) =>{
       this.items.set(res);
     });
+  }
+
+  public TriggerNameValidatorDown(){
+    this.triggerNameValidator = !this.personenModelWritableSignal().Name;
   }
 
   public onAvatarSelect (event: any) {
@@ -123,18 +134,45 @@ export class Benutzer {
     formData.append('File', file);
     this.avatarFile.set(formData);
   }
-  public ErstelleBenutzer() {
+  public ErstelleBenutzer()  {
+    if(!this.personenModelWritableSignal().Name) {
+      this.messageService.add({
+        key: "fehlerBeimBenutzerErstellen",
+        severity: 'error',
+        summary: 'Fehler',
+        detail: 'Bitte wähle einen Namen aus',
+      })
+    }
+    if(this.avatarPrieview()?.includes(this.keyWord)) {
+      this.messageService.add({
+        key: "fehlerBeimBenutzerErstellen",
+        severity: 'error',
+        summary: 'Fehler',
+        detail: 'Bitte wähle ein Profilbild aus',
+      })
+    }
 
-    this.UploadAvatarFile();
-    this.httpClient.post("http://localhost:5202/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
-    this.personenModelWritableSignal.set({
-      Id: 0,
-      Name: '-',
-      Lehrjahr: 1,
-      LieblingsZitat: '',
-      AvatarFileName: '',
-    });
+    if(this.personenModelWritableSignal().Name && !this.avatarPrieview()?.includes(this.keyWord))
+    {
+      this.UploadAvatarFile();
+      this.httpClient.post("http://localhost:5202/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
+      this.messageService.add({
+        key: "toestBenutzerErstellen",
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Benutzer wurde erstellt',
+      })
+
+      this.personenModelWritableSignal.set({
+        Id: 0,
+        Name: '',
+        Lehrjahr: 1,
+        LieblingsZitat: '',
+        AvatarFileName: '',
+      });
+    }
   }
+
   private UploadAvatarFile() {
     this.httpClient.post("http://localhost:5202/avatarBildUpload", this.avatarFile()).subscribe();
   }

@@ -1,5 +1,6 @@
 <div class="parent">
   <div class="div1">
+    <p-toast key="toestZitateErstellen" position="bottom-right">...</p-toast>
   </div>
   <div class="div6">
     <div class="input-row"><input id="neuesZitatInput" type="text" [(ngModel)]="zitat().zitateName" pInputText placeholder="Erstelle Zitat..." class="input-flex"/>
@@ -75,19 +76,17 @@
     @for (zitatee of aktuelleZitate(); track zitatee.id) {
       @if (zitatee.id % 2 == 1) {
         <div class="container">
-          <img src="https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3975.png&w=350&h=254"
+          <img src="https://www.cottodeste.de/media/immagini/185_n_COTTODESTE-BLACK-WHITE-black-minimale.jpg"
                alt="Avatar">
           <p>{{ zitatee.zitateName }}</p>
         </div>
       } @else {
         <div class="container">
-          <img src="https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3975.png&w=350&h=254"
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpmre00kIXDPXoBBVEin-Iqzwpyq6HLtxxog&s"
                alt="Avatar" class="right">
           <p>{{ zitatee.zitateName }}</p>
         </div>
       }
-
     }
-
   </div>
 </div>

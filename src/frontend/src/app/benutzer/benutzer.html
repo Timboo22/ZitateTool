@@ -1,5 +1,5 @@
 <div class="parent">
-
+  <p-toast key="fehlerBeimBenutzerErstellen" position="bottom-right">...</p-toast>
   <div class="div2">
       <h3>Benutzer  suchen</h3>
     <input id="sucheEinenBenutzer" #InputSuche (input)="SucheBenutzer(InputSuche.value)" type="text" pInputText placeholder="Such einen Benutzer.." class="w-36 input-with-icon"/>
@@ -31,7 +31,7 @@
           <p-inputgroup-addon>
             <i class="pi pi-user"></i>
           </p-inputgroup-addon>
-          <input pInputText [invalid]="!personenModelWritableSignal().Name" [(ngModel)]="personenModelWritableSignal().Name" maxlength="20" placeholder="Name"/>
+          <input pInputText [invalid]="triggerNameValidator" [(ngModel)]="personenModelWritableSignal().Name" (change)="TriggerNameValidatorDown()" maxlength="20" placeholder="Name"/>
         </p-inputgroup>
         <p-inputgroup>
           <p-inputgroup-addon>
@@ -45,12 +45,7 @@
           </p-inputgroup-addon>
           <textarea rows="5" [(ngModel)]="personenModelWritableSignal().LieblingsZitat" cols="30" pTextarea placeholder="Lieblings Zitat der Person"></textarea>
         </p-inputgroup>
-        <p-button id="submitButton" [disabled]="!(personenModelWritableSignal().Name && !avatarPrieview()?.includes(keyWord))" label="Erstellen" (click)="ErstelleBenutzer()"/>
-        @if(!personenModelWritableSignal().Name || avatarPrieview()?.includes(keyWord) ) {
-          <div class="validatorTextContainer">
-          <small class="validatorText">Bitte fülle das Formular aus!</small>
-          </div>
-        }
+        <p-button id="submitButton" label="Erstellen" (click)="ErstelleBenutzer()"/>
       </div>
     </div>
   </div>
