@@ -39,7 +39,7 @@ export class Benutzer {
 
   personenModelWritableSignal = signal<PersonenModel>({
     Id: 0,
-    Name: '' ,
+    Name: '-' ,
     Lehrjahr: 1,
     LieblingsZitat: '',
     AvatarFileName: '',
@@ -129,7 +129,7 @@ export class Benutzer {
     this.httpClient.post("http://localhost:5202/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
     this.personenModelWritableSignal.set({
       Id: 0,
-      Name: '',
+      Name: '-',
       Lehrjahr: 1,
       LieblingsZitat: '',
       AvatarFileName: '',
