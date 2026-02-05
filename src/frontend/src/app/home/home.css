@@ -47,14 +47,10 @@
     max-width: 1000px;
     margin: 0 auto;
     display: block;
+    border-color: lightgray;
   }
-
-
     #neuesZitatInput:hover {
     border-color: #42005a;
-
-  }#neuesZitatInput:enabled {
-    border-color: #42005a; !important;
   }
 
   #neuesZitatInput:focus {
@@ -154,5 +150,30 @@
     margin-left: 20px;
     margin-right:0;
   }
+
+  :host ::ng-deep .p-select {
+    display: flex;
+    width: 50%;
+    margin-bottom: 10px ;
+  }
+
+  .flexDisplay {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-select.p-focus,
+  .p-select:hover {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #42005a !important;
+  }
+
+  :host ::ng-deep .p-select-option:hover   {
+    background-color: rgba(134, 1, 186, 0.6);
+    color: #fff ;
+  }
+
+
 
 

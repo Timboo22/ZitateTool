@@ -6,7 +6,14 @@ public static class ZitateExtensions
 {
     public static void ZitateEndpoints(this WebApplication app)
     {
-        app.MapPost("/erstelleZitat", async (Zitate zitat, ContextDb db) => {
+        app.MapPost("/erstelleZitat", async (Zitate postZitat, ContextDb db) =>
+            {
+                Zitate zitat = new Zitate()
+                {
+                    ZitateName =  postZitat.ZitateName,
+                    BenutzerId = postZitat.BenutzerId,
+                };          
+                
                 db.Zitate.Add(zitat);
                 await db.SaveChangesAsync();
 

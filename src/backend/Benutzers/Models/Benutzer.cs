@@ -13,6 +13,8 @@ public class Benutzer
     public string LieblingsZitat { get; set; }
     
     public string AvatarFileName { get; set; }
+
+    public ICollection<Zitate> Zitate { get; set; } = new List<Zitate>();
     
     [NotMapped]
     
