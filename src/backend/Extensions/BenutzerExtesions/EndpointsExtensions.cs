@@ -27,7 +27,7 @@ public static class EndpointsExtensions
     public static void AvartarBenutzer(this WebApplication app)
     {
         app.MapPost("/avatarBildUpload",
-            ([FromForm] IFormFile file, IBenutzerAvatarService benutzerAvatarService) => {
+            ([FromForm] IFormFile file ,IBenutzerAvatarService benutzerAvatarService) => {
                 benutzerAvatarService.SpeicherBildImOrdner(file);
             }).DisableAntiforgery();
     }

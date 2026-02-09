@@ -5,7 +5,7 @@
   <div class="div6">
     <div class="flexDisplay">
       <div class="card flex justify-center userSelect">
-        <p-select [options]="items()" [(ngModel)]="zitat().BenutzerId"   optionValue="id" optionLabel="name"  [showClear]="true" placeholder="Benutzer" class="w-full md:w-56"/>
+        <p-select [options]="items()" [(ngModel)]="zitat().BenutzerId"   optionValue="id" optionLabel="name"  [showClear]="true" placeholder="Wähle die Person aus" class="w-full md:w-56"/>
       </div>
       <div class="input-row">
         <textarea id="neuesZitatInput" type="text" [(ngModel)]="zitat().zitateName" pInputText placeholder="Erstelle Zitat..." class="input-flex"></textarea>
@@ -15,20 +15,32 @@
   </div>
   <div class="div14"></div>
   <div class="div17">
-    @for (zitatee of aktuelleZitate(); track zitatee.id) {
-      @if (zitatee.id % 2 == 1) {
-        <div class="container">
-          <img src="https://www.cottodeste.de/media/immagini/185_n_COTTODESTE-BLACK-WHITE-black-minimale.jpg"
-               alt="Avatar">
+    @for (zitatee of aktuelleZitate(); track zitatee.id ?? $index) {
+      @if (zitatee.id % 2 === 1) {
+        <div class="containerUngerade">
+          <div class="avatarFlex">
+            <img
+              [src]="'/' + zitatee.benutzerName + '.png'"
+              alt="Avatar"
+            />
+            <p>{{ zitatee.benutzerName }}</p>
+          </div>
           <p>{{ zitatee.zitateName }}</p>
         </div>
       } @else {
-        <div class="container">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpmre00kIXDPXoBBVEin-Iqzwpyq6HLtxxog&s"
-               alt="Avatar" class="right">
+        <div class="containerGerade">
+          <div class="avatarFlex">
+            <img
+              [src]="'/' + zitatee.benutzerName + '.png'"
+              alt="Avatar"
+            />
+            <p class="textBeiBild">{{ zitatee.benutzerName }}</p>
+          </div>
           <p>{{ zitatee.zitateName }}</p>
         </div>
       }
+
     }
+
   </div>
 </div>

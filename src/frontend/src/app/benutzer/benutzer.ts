@@ -28,6 +28,7 @@ interface SuchePersonenModel {
   avatarFileName: string,
   Lehrjahr: number;
 }
+
 @Component({
   selector: 'app-benutzer',
   imports: [ScrollPanelModule,
@@ -63,6 +64,9 @@ export class Benutzer {
   keyWord = "https://www.shutterstock.com/image-vector/default-avatar-social-media-display-600nw-2632690107.jpg";
 
   triggerNameValidator = false;
+
+
+
 
   gesuchteBenutzer = signal<SuchePersonenModel[]>([]);
   ngOnInit(): void {
@@ -130,8 +134,16 @@ export class Benutzer {
     this.avatarPrieview.set(url)
   }
   private CreateFormData (file: any) {
+
+    const renamedFile = new File(
+      [file],
+      `${this.personenModelWritableSignal().Name}.png`,
+      { type: file.type }
+    );
+
     const formData = new FormData();
-    formData.append('File', file);
+    console.log(this.personenModelWritableSignal());
+    formData.append('File', renamedFile);
     this.avatarFile.set(formData);
   }
   public ErstelleBenutzer()  {
