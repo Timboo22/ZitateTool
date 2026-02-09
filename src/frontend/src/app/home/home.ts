@@ -7,11 +7,13 @@ import {FormsModule} from '@angular/forms';
 import {MessageService} from 'primeng/api';
 import {Toast} from 'primeng/toast';
 import {Select} from 'primeng/select';
+import {JsonPipe, NgOptimizedImage} from '@angular/common';
 
 interface Zitat {
   id: number;
   zitateName : string;
   BenutzerId : number;
+  benutzerName?: string
 }
 
 interface PersonenModel {
@@ -29,7 +31,9 @@ interface PersonenModel {
     TableModule,
     FormsModule,
     Toast,
-    Select
+    Select,
+    JsonPipe,
+    NgOptimizedImage
   ],
   templateUrl: './home.html',
   styleUrl: './home.css',
@@ -37,13 +41,14 @@ interface PersonenModel {
 })
 export class Home {
 
-  zitat = signal<Zitat>({id: 0,zitateName :"", BenutzerId:0});
+  zitat = signal<Zitat>({id: 0,zitateName :"", BenutzerId:0, benutzerName : "", });
 
   gefundeneZitate = signal<Zitat[]>([]);
 
   aktuelleZitate = computed(() =>
-    this.gefundeneZitate().slice(-7)
+    this.gefundeneZitate().slice(-4)
   );
+
 
   items = signal<PersonenModel[]>([]);
 
@@ -64,6 +69,7 @@ export class Home {
       id : 0,
       zitateName : "",
       BenutzerId : 0,
+      benutzerName : "",
     });
 
     this.messageService.add({

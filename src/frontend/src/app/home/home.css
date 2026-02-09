@@ -118,48 +118,48 @@
     justify-content: center;
   }
 
-  .container {
+  .containerUngerade {
+    display: flex;
     border: 2px solid #dedede;
     background-color: #f1f1f1;
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
+    gap: 300px;
+    flex-direction: row-reverse;
   }
 
-  .darker {
-    border-color: rgba(208, 68, 207, 0.4);
-    background-color: rgba(208, 68, 207, 0.22);
+  .containerGerade {
+    display: flex;
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 300px;
+    flex-direction: row;
   }
 
-  .container::after {
+
+  .containerUngerade::after,
+  .containerGerade::after {
     content: "";
     clear: both;
     display: table;
   }
 
-  .container img {
-    float: left;
+
+  .containerUngerade img,
+  .containerGerade img {
     max-width: 60px;
     width: 100%;
-    margin-right: 20px;
     border-radius: 50%;
-  }
-
-  .container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
   }
 
   :host ::ng-deep .p-select {
     display: flex;
-    width: 50%;
+    width: 93%;
     margin-bottom: 10px ;
-  }
-
-  .flexDisplay {
-    display: flex;
-    flex-direction: column;
   }
 
   .p-select.p-focus,
@@ -172,6 +172,12 @@
   :host ::ng-deep .p-select-option:hover   {
     background-color: rgba(134, 1, 186, 0.6);
     color: #fff ;
+  }
+
+  .avatarFlex {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
 

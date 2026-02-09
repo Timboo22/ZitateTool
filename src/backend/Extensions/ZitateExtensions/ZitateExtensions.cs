@@ -1,4 +1,5 @@
-﻿using SanoaAPI.Benutzers.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SanoaAPI.Benutzers.Models;
 
 namespace SanoaAPI.Extensions.ZitateExtensions;
 
@@ -21,6 +22,16 @@ public static class ZitateExtensions
             })
             .DisableAntiforgery();
         
-        app.MapGet("/holeZitate", (ContextDb db) => db.Zitate.ToList());
+        app.MapGet("/holeZitate", async (ContextDb db) =>
+        {
+            return await db.Zitate
+                .Include(z => z.Benutzer)
+                .Select(z => new {
+                    z.Id,
+                    z.ZitateName,
+                    BenutzerName = z.Benutzer.Name
+                })
+                .ToListAsync();
+        });
     }
 }

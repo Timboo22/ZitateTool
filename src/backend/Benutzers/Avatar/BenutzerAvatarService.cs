@@ -1,6 +1,4 @@
-﻿using System.IO;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using SanoaAPI.Benutzer.Avatar.Services;
 using SanoaAPI.Benutzer.Models;
 
@@ -17,16 +15,31 @@ public class BenutzerAvatarService : IBenutzerAvatarService
     
     public void SpeicherBildImOrdner(IFormFile file)
     {
-        Directory.CreateDirectory(_avatarBildPfad);
-        
-        KopiereDateiZumStream(file);
+        try
+        {
+            Directory.CreateDirectory(_avatarBildPfad);
+            
+            KopiereDateiZumStream(file);
+        }
+        catch (Exception e)
+        {
+            // ignored
+        }
     }
 
     private void KopiereDateiZumStream(IFormFile file)
     {
-        using (var stream = new FileStream(Path.Combine(_avatarBildPfad, file.FileName), FileMode.Create))
+        try
         {
-            file.CopyTo(stream);
-        };
+            using (var stream = new FileStream(Path.Combine(_avatarBildPfad, file.FileName), FileMode.Create))
+            {
+                file.CopyTo(stream);
+            };
+        }
+        catch (Exception e)
+        {
+            //ignore
+        }
+
     }
 } 
