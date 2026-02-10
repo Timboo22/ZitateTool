@@ -7,13 +7,107 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.1">
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.3">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.3" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+        <PackageReference Include="Moq" Version="4.20.72" />
+        <PackageReference Include="NSubstitute" Version="5.3.0" />
+        <PackageReference Include="xunit" Version="2.9.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="BenutzerTests\bin\Debug\net10.0\BenutzerTests.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerTests\bin\Debug\net10.0\BenutzerTests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerTests\obj\BenutzerTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerTests\obj\Debug\net10.0\BenutzerTests.sourcelink.json" />
+      <_ContentIncludedByDefault Remove="BenutzerTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="BenutzerTests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-net472\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe.config" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-netcore\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll.config" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-net472\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.exe.config" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-netcore\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll.config" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\BenutzerServiceTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-netcore\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-netcore\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.staticwebassets.endpoints.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\BenutzerServiceTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\Debug\net10.0\BenutzerServiceTests.sourcelink.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-netcore\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BuildHost-netcore\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.staticwebassets.endpoints.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\BenutzerServiceTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\Debug\net10.0\BenutzerServiceTests.sourcelink.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.deps.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.staticwebassets.endpoints.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\BenutzerServiceTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.staticwebassets.endpoints.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\BenutzerServiceTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\Debug\net10.0\BenutzerServiceTests.sourcelink.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.staticwebassets.endpoints.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\BenutzerServiceTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\Debug\net10.0\BenutzerServiceTests.sourcelink.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\BenutzerServiceTests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.deps.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\bin\Debug\net10.0\SanoaAPI.staticwebassets.endpoints.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\obj\BenutzerServiceTests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\obj\Debug\net10.0\BenutzerServiceTests.sourcelink.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Tests\BenutzerServiceTests\obj\project.packagespec.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Tests\" />
     </ItemGroup>
 
 </Project>

@@ -16,9 +16,6 @@ public class BenutzerService : IBenutzerService
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(benutzer.Name)) 
-                return;
-                
             _db.Add(benutzer);
             _db.SaveChanges();
         }
