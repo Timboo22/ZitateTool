@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SanoaAPI.Benutzers.Models;
+using SanoaAPI.Benutzers.Services.Contracts;
 
 namespace SanoaAPI;
 
