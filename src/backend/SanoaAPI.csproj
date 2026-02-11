@@ -107,7 +107,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Tests\" />
+      <Compile Update="UnitTests\UnitTest1.cs">
+        <Link>BenutzerUnitTest\UnitTest1.cs</Link>
+      </Compile>
     </ItemGroup>
 
 </Project>
