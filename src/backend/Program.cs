@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IBenutzerAvatarService, BenutzerAvatarService>();
 builder.Services.AddScoped<IBenutzerService, BenutzerService>();
+builder.Services.AddScoped<IDataService, DataService>();
 builder.Services.Configure<AvatarOptions>(builder.Configuration);
 builder.Services.AddDbContext<ContextDb>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

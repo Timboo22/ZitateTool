@@ -5,4 +5,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="SanoaAPI.csproj" />
+  <Project Path="UnitTests/UnitTests.csproj" />
 </Solution>
