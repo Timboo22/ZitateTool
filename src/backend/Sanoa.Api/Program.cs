@@ -4,7 +4,6 @@ using SanoaAPI;
 using SanoaAPI.Benutzer.Avatar;
 using SanoaAPI.Benutzer.Avatar.Services;
 using SanoaAPI.Benutzer.Models;
-using SanoaAPI.Benutzers.Services;
 using SanoaAPI.Benutzers.Services.Contracts;
 using SanoaAPI.Extensions;
 using SanoaAPI.Extensions.BenutzerExtesions;
@@ -17,7 +16,7 @@ builder.Services.AddScoped<IBenutzerService, BenutzerService>();
 builder.Services.AddScoped<IDataService, DataService>();
 builder.Services.Configure<AvatarOptions>(builder.Configuration);
 builder.Services.AddDbContext<ContextDb>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

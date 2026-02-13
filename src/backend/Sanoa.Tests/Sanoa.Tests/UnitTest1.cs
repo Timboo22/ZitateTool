@@ -2,7 +2,7 @@
 using SanoaAPI.Benutzers.Models;
 using SanoaAPI.Benutzers.Services.Contracts;
 
-namespace SanoaAPI.Tests.BenutzerServiceTests;
+namespace Sanoa.Tests;
 
 public class BenutzerServiceTests
 {
@@ -18,10 +18,10 @@ public class BenutzerServiceTests
     [Fact]
     public void BenutzerLoeschen_UserExists_CallsRemoveAndSave()
     {
-        var dbBenutzer = new Benutzers.Models.Benutzer { Id = 1, Name = "Timbo" };
+        var dbBenutzer = new Benutzer { Id = 1, Name = "Timbo" };
         var loeschNutzer = new LoeschbarerNutzer(1);
-        var benutzerListe = new List<Benutzers.Models.Benutzer> { dbBenutzer }.AsQueryable();
-        _fakeDb.GetAll<Benutzers.Models.Benutzer>().Returns(benutzerListe);
+        var benutzerListe = new List<Benutzer> { dbBenutzer }.AsQueryable();
+        _fakeDb.GetAll<Benutzer>().Returns(benutzerListe);
         _fakedService.BenutzerLoeschen(loeschNutzer);
         _fakeDb.Received(1).Remove(dbBenutzer);
         _fakeDb.Received(1).Save();
@@ -30,7 +30,7 @@ public class BenutzerServiceTests
     [Fact]
     public void BenutzerHinzufuegen_Hinzufuegen_Ohne_Namen()
     {
-        var neuerUser = new Benutzers.Models.Benutzer { Id = 1 };
+        var neuerUser = new Benutzer { Id = 1 };
 
         _fakedService.BenutzerHinzufuegen(neuerUser);
         _fakeDb.DidNotReceive().Add(neuerUser);
@@ -42,7 +42,7 @@ public class BenutzerServiceTests
     {
         var fakeDb = Substitute.For<IDataService>();
         var sut = new BenutzerService(fakeDb);
-        var neuerUser = new Benutzers.Models.Benutzer { Id = 1, Name = "Timbo" };
+        var neuerUser = new Benutzer { Id = 1, Name = "Timbo" };
 
         sut.BenutzerHinzufuegen(neuerUser);
         fakeDb.Received(1).Add(neuerUser);

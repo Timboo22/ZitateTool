@@ -4,6 +4,6 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="SanoaAPI.csproj" />
-  <Project Path="UnitTests/UnitTests.csproj" />
+  <Project Path="../Sanoa.Tests/Sanoa.Tests/Sanoa.Tests.csproj" />
+  <Project Path="Sanoa.Api.csproj" />
 </Solution>
