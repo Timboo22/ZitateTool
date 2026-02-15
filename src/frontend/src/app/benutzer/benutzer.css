@@ -1,281 +1,31 @@
-.parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+.container {
+  display: flex;
+  flex-direction: row;
   gap: 5px;
-  margin-top: -10vh;
-}
+  justify-content: center;
 
-.div2 {
-  grid-column: span 3 / span 3;
-  grid-row: span 2 / span 2;
-  grid-column-start: 2;
-  grid-row-start: 2;
+}
+.innererContainer {
+  width: 20%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.div3 {
-  display: flex;
-  justify-content: center;
-  height: 50vh;
-  margin-right: -200px;
-  grid-column: span 2 / span 2;
-  grid-row: span 5 / span 5;
-  grid-column-start: 2;
-  grid-row-start: 4;
-}
-
-.div4 {
-  display: flex;
-  justify-content: center;
-  grid-row: span 4 / span 4;
-  grid-column-start: 4;
-  grid-row-start: 5;
-}
-
-.div5 {
-  grid-column-start: 4;
-  grid-row-start: 4;
-  padding-bottom: 10px;
-  border-bottom: 1px solid lightgray;
-}
-
-.formContainer {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 50%;
-  align-items: center;
-  border-right: 1px solid gray;
-}
-
-.headingCenter {
-  color: #55196a;
-  text-align: center;
-  margin-bottom: 0px;
-}
-
-p-inputgroup {
-  margin-top: 20px;
-}
-
-.p-inputtext:focus,
-.p-inputtext:hover {
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: #8601ba !important;
-}
-
-.p-inputwrapper-focus .p-inputtext {
-  border-color: #8601ba !important;
-  box-shadow: 0 0 0 0.15rem rgba(134, 1, 186, 0.6) !important;
-  outline: none !important;}
-
-.p-select.p-focus,
-.p-select:hover {
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: #8601ba !important;
-}
-
-:host ::ng-deep .p-select-option:hover   {
-  background-color: rgba(134, 1, 186, 0.6)  !important;
-  color: #fff !important;
-}
-
-:host ::ng-deep .custom-calendar .p-inputtext {
-  border-radius: 5px;
-  padding: 10px;
-}
-
-:host ::ng-deep .custom-calendar .p-inputtext:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: #8601ba !important;
-}
-
-:host ::ng-deep .custom-calendar .p-inputtext:hover {
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: #8601ba !important;
-}
-
-:host ::ng-deep .custom-calendar .p-datepicker {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-:host ::ng-deep .custom-calendar table td > span:not(.p-highlight):hover {
-  background-color: rgba(134, 1, 186, 0.6)  !important;
-  border-radius: 50%;
-}
-
-:host ::ng-deep .p-datepicker-day-selected{
-  background-color: rgba(134, 1, 186, 0.6)  !important;
-}
-
-.p-textarea:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: #8601ba !important;
-}
-
-.p-textarea:hover {
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: #8601ba !important;
-}
-
-#vorschauProfil {
-  width:150px;
-  height:150px;
-  object-fit:cover;
-  border-radius:50%;
-}
-
-.vorschauContainer {
-  width: 50%;
-  align-items: center;
-}
-
-.textBereich {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.vorschauText {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.vorschauContainer label {
-  font-weight: bold;
-}
-
-#submitButton {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  gap: 10px;
 }
 
 :host ::ng-deep .p-button {
-  background-color: #55196a !important;
-}
-
-:host ::ng-deep .p-button:hover {
   background-color: #8601ba !important;
+  color: var(--color-white);
+  border: none;
+  width: 100%;
 }
 
-#profilBildButton {
-  display: flex;
-  justify-content: center;
-}
-
-.avatarBild{
-  width:30px;
-  object-fit:cover;
-  border-radius:50%;
-  height:30px;
-  margin-left:10px;
-}
-
-.benutzerInListe {
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
+:host ::ng-deep .p-button:not(:disabled):hover {
+  background-color: #d684fd !important;
+  color: var(--color-white);
+  border: none;
 }
 
 
-
-.suchContainer {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
-  gap: 30px;
-}
-
-.suchContainer div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40vh;
-  box-shadow: 0 1px 12px rgba(66, 0, 90, 0.3);
-  padding: 20px;
-  font-size: 17px;
-}
-
-.user-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 10px;
-}
-
-.avatarBild {
-  border-radius: 50%;
-}
-
-.delete-icon {
-  margin-left: auto;
-  cursor: pointer;
-  padding: 6px;
-}
-
-.user-row i:hover {
-  background-color: rgba(159, 159, 159, 0.6);
-  border-radius: 50%;
-
-}
-
-.fade-in {
-  opacity: 1;
-  animation-name: fadeInOpacity;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 0.1s;
-}
-
-@keyframes fadeInOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-#sucheEinenBenutzer {
-  margin-bottom: 10px;
-}
-
-.entscheidungsButtons {
-  padding: 10px;
-  border: 0 solid lightgray;
-  width: 10rem;
-  border-radius: 20px;
-  background-color: #55196a;
-  color: white;
-  margin: 10px;
-}
-
-.entscheidungsButtons:hover {
-  background-color: #8601ba !important;
-}
-
-:host ::ng-deep .p-button svg {
-  fill: white !important;
-  stroke: white !important;
-}
-
-.validatorTextContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top:5px;
-  color: red;
+h2 {
+  color: #d684fd;
 }

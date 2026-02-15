@@ -19,12 +19,12 @@ export class Navbar implements OnInit {
         label: 'Sanoa',
         items: [
           {
-            label: 'Alle Zitate',
-            icon: 'pi pi-calendar-clock',
+            label: 'Zitate Übersicht',
+            icon: 'pi pi-bookmark-fill',
             routerLink: '/'
           },
           {
-            label: 'Mitarbeiter',
+            label: 'Benutzer',
             icon: 'pi pi-users',
             routerLink: '/Benutzer'
           },

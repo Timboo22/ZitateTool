@@ -32,10 +32,7 @@ interface PersonenModel {
     InputText,
     TableModule,
     FormsModule,
-    Toast,
     Select,
-    JsonPipe,
-    NgOptimizedImage,
     Textarea,
     Button
   ],
@@ -68,6 +65,7 @@ export class Home {
   public ErstelleZitat() {
     this.httpClient.post("http://localhost:5202/erstelleZitat", this.zitat()).subscribe((res : any) =>{
       this.gefundeneZitate.update(list => [...list, res])
+      this.HoleZitateAusDb();
     });
     this.zitat.set({
       id : 0,
