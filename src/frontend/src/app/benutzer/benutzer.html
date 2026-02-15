@@ -1,76 +1,22 @@
-<div class="parent">
-  <p-toast key="fehlerBeimBenutzerErstellen" position="bottom-right">...</p-toast>
-  <div class="div2">
-      <h3>Benutzer  suchen</h3>
-    <input id="sucheEinenBenutzer" #InputSuche (input)="SucheBenutzer(InputSuche.value)" type="text" pInputText placeholder="Such einen Benutzer.." class="w-36 input-with-icon"/>
-    <div class="suchContainer">
-      @for (benutzer of gesuchteBenutzer(); track benutzer.id) {
-        <div class="user-row fade-in">
-          <span class="name ">{{ benutzer.name }}</span>
-          <img [src]="'http://localhost:5202/avatars/' + benutzer.avatarFileName" class="avatarBild" width="40" height="40" alt="Avatar"/>
-          <i class="pi pi-trash delete-icon" (click)="AendereSichtbarkeitLoeschen()"></i>
-          <i class="pi pi-pencil edit-icon" (click)="AendereSichtbarkeitBearbeiten()"></i>
-          <p-dialog class="funfsex" header="Wirklich Benutzer löschen" [modal]="true" [(visible)]="LoeschenAbfrageSichtbarkeit" [style]="{ width: '27rem' }">
-            <div class="flex justify-end gap-2">
-              <button label="Neon" class="entscheidungsButtons" severity="secondary" (click)="LoeschenAbfrageSichtbarkeit = false">Nein</button>
-              <button label="ja" class="entscheidungsButtons" (click)="AbfrageLoeschen(benutzer.id)">Ja</button>
-            </div>
-          </p-dialog>
-        </div>
-      }
-    </div>
+<div class="container">
+  <div class="innererContainer">
+  <div class="headingCenter">
+    <h2>Benutzer erstellen</h2>
   </div>
-
-  <div class="div3">
-    <div class="formContainer">
-      <div class="boxbox">
-        <div class="headingCenter">
-          <h2>Benutzer erstellen</h2>
-        </div>
-        <p-inputgroup>
-          <p-inputgroup-addon>
-            <i class="pi pi-user"></i>
-          </p-inputgroup-addon>
-          <input pInputText [invalid]="triggerNameValidator" [(ngModel)]="personenModelWritableSignal().Name" (change)="TriggerNameValidatorDown()" maxlength="20" placeholder="Name"/>
-        </p-inputgroup>
-        <p-inputgroup>
-          <p-inputgroup-addon>
-            <i class="pi pi-graduation-cap"></i>
-          </p-inputgroup-addon>
-          <p-select [options]="lehrjahre" [(ngModel)]="personenModelWritableSignal().Lehrjahr" [checkmark]="true"  [showClear]="true" placeholder="Wähle das Lehrjahr" class="w-full md:w-56" />
-        </p-inputgroup>
-        <p-inputgroup>
-          <p-inputgroup-addon>
-            <i class="pi pi-calendar"></i>
-          </p-inputgroup-addon>
-          <textarea rows="5" [(ngModel)]="personenModelWritableSignal().LieblingsZitat" cols="30" pTextarea placeholder="Lieblings Zitat der Person"></textarea>
-        </p-inputgroup>
-        <p-button id="submitButton" label="Erstellen" (click)="ErstelleBenutzer()"/>
-      </div>
-    </div>
-  </div>
-  <div class="div4">
-    <div class="vorschauContainer">
-      <div class="headingCenter">
-        <h3>Vorschau</h3>
-        <img id="vorschauProfil"  [src]="avatarPrieview()!">
-      </div>
-      <div class="textBereich">
-        <label for="vorschauName" >Name:</label>
-        <div id="vorschauName" class="vorschauText">{{personenModelWritableSignal().Name}}</div>
-        <label for="vorschauLehrjahr">Lehrjahr:</label>
-        <div id="vorschauLehrjahr" class="vorschauText">{{personenModelWritableSignal().Lehrjahr}}</div>
-        <label for="vorschauZitat">Lieblingszitat:</label>
-        <div id="vorschauZitat" class="vorschauText">{{personenModelWritableSignal().LieblingsZitat}}</div>
-      </div>
-    </div>
-  </div>
-  <div class="div5">
-    <div class="headingCenter">
-      <h3>Profilbild</h3>
-    </div>
-    <div id="profilBildButton">
-      <p-fileupload mode="basic" chooseIcon="pi pi-upload"  accept="image/*" maxFileSize="1000000" [auto]="true" chooseLabel="Auswählen" (onSelect)="onAvatarSelect($event)"/>
-    </div>
-  </div>
+  <p-inputgroup>
+    <p-inputgroup-addon>
+      <i class="pi pi-user"></i>
+    </p-inputgroup-addon>
+    <input pInputText [invalid]="triggerNameValidator" [(ngModel)]="personenModelWritableSignal().Name"
+           (change)="TriggerNameValidatorDown()" maxlength="20" placeholder="Name"/>
+  </p-inputgroup>
+  <p-inputgroup>
+    <p-inputgroup-addon>
+      <i class="pi pi-graduation-cap"></i>
+    </p-inputgroup-addon>
+    <p-select [options]="lehrjahre" [(ngModel)]="personenModelWritableSignal().Lehrjahr" [checkmark]="true"
+              [showClear]="true" placeholder="Wähle das Lehrjahr" class="w-full md:w-56"/>
+  </p-inputgroup>
+    <p-button (click)="ErstelleBenutzer()">erstellen</p-button>
+</div>
 </div>

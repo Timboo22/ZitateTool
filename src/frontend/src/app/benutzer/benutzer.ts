@@ -65,87 +65,17 @@ export class Benutzer {
 
   triggerNameValidator = false;
 
-
-
-
-  gesuchteBenutzer = signal<SuchePersonenModel[]>([]);
-  ngOnInit(): void {
-    this.HoleExistierendeBenutzer();
-  }
-  private HoleExistierendeBenutzer () {
-      this.httpClient.get<PersonenModel[]>('http://localhost:5202/holeExistierendenNutzer').subscribe((res : any) =>{
-      this.items.set(res);
-    });
-  }
-
   public TriggerNameValidatorDown(){
     this.triggerNameValidator = !this.personenModelWritableSignal().Name;
-  }
-
-  public onAvatarSelect (event: any) {
-    const file = event.files[0];
-    this.personenModelWritableSignal().AvatarFileName = file.name;
-    this.SetzeProfilBild(file);
-    this.CreateFormData(file);
-  }
-  public SucheBenutzer(suchbegriff: string): void {
-
-    if (!suchbegriff || suchbegriff.trim().length < 2) {
-      this.gesuchteBenutzer.set([]);
-      return;
-    }
-    this.httpClient
-      .get<SuchePersonenModel[]>(
-        'http://localhost:5202/SuchBenutzer',
-        {
-          params: { suchBegriff: suchbegriff.trim() }
-        }
-      )
-      .subscribe({
-        next: (res) => {
-          console.log('Suchergebnis:', res);
-          this.gesuchteBenutzer.set(res ?? []);
-        },
-        error: (err) => {
-          console.error('SucheBenutzer Fehler:', err);
-          this.gesuchteBenutzer.set([]);
-        }
-      });
   }
 
   LoeschenAbfrageSichtbarkeit: boolean = false;
   BearbeitenAbfrageSichtbarkeit: boolean = false;
 
-  AendereSichtbarkeitLoeschen() {
-    this.LoeschenAbfrageSichtbarkeit = true;
-  }
 
-  AendereSichtbarkeitBearbeiten() {
-    this.BearbeitenAbfrageSichtbarkeit = true;
-  }
-  public AbfrageLoeschen(id : number): void {
-    this.LoeschenAbfrageSichtbarkeit = false;
-    this.httpClient.post("http://localhost:5202/LoescheBenutzer", {id : id}).subscribe();
-    this.SucheBenutzer("")
-  }
 
-  private SetzeProfilBild(file: any) {
-    const url = URL.createObjectURL(file);
-    this.avatarPrieview.set(url)
-  }
-  private CreateFormData (file: any) {
 
-    const renamedFile = new File(
-      [file],
-      `${this.personenModelWritableSignal().Name}.png`,
-      { type: file.type }
-    );
 
-    const formData = new FormData();
-    console.log(this.personenModelWritableSignal());
-    formData.append('File', renamedFile);
-    this.avatarFile.set(formData);
-  }
   public ErstelleBenutzer()  {
     if(!this.personenModelWritableSignal().Name) {
       this.messageService.add({
@@ -166,7 +96,6 @@ export class Benutzer {
 
     if(this.personenModelWritableSignal().Name && !this.avatarPrieview()?.includes(this.keyWord))
     {
-      this.UploadAvatarFile();
       this.httpClient.post("http://localhost:5202/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
       this.messageService.add({
         key: "toestBenutzerErstellen",
@@ -183,9 +112,5 @@ export class Benutzer {
         AvatarFileName: '',
       });
     }
-  }
-
-  private UploadAvatarFile() {
-    this.httpClient.post("http://localhost:5202/avatarBildUpload", this.avatarFile()).subscribe();
   }
 }

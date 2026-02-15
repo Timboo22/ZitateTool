@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
+
+:
+
 body{
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
