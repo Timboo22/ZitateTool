@@ -1,6 +1,6 @@
-# 📜 ZitateTool
+# 📜 Sanoa
 
-**ZitateTool** is a modern web application for creating, managing, and displaying quotes.  
+**Sanoa** is a modern web application for creating, managing, and displaying quotes.  
 It is built with a **.NET Minimal API** backend and an **Angular 21** frontend.
 
 The project focuses on a clean architecture, fast APIs, and a modern Angular setup using the latest features.
