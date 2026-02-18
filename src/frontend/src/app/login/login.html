@@ -1,0 +1,22 @@
+
+<div class="fromContainer">
+  <div class="einleitung">
+    <h1>Wilkommen bei Sanoa!</h1>
+    <small>Melde dich mit deinen Daten um an Sanoa teilzunehmen</small>
+  </div>
+    <p-inputgroup>
+    <p-inputgroup-addon>
+      <i class="pi pi-user"></i>
+    </p-inputgroup-addon>
+    <input pInputText  [(ngModel)]="parms().username" maxlength="20" placeholder="Name"/>
+    </p-inputgroup>
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <i class="pi pi-key"></i>
+      </p-inputgroup-addon>
+      <input pInputText type="password" [(ngModel)]="parms().password" maxlength="50" placeholder="Passwort"/>
+    </p-inputgroup>
+  <p-button (click)="onLogin()">Log in</p-button>
+  </div>
+
+

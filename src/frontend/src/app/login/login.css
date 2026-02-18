@@ -1,0 +1,39 @@
+h1 {
+  font-size: 2em;
+  color: #8601ba;
+}
+
+.fromContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.einleitung{
+  margin-bottom: 0.5rem;
+}
+
+:host ::ng-deep .p-inputtext:enabled:hover {
+  border-color: #d684fd !important;
+}
+
+:host ::ng-deep .p-inputtext:enabled:focus {
+  border-color: #8601ba !important;
+  box-shadow: 0 0 0 0.2rem rgba(134, 1, 186, 0.25) !important;
+}
+
+:host ::ng-deep .p-button {
+  background-color: #8601ba !important;
+  color: var(--color-white);
+  border: none;
+}
+
+:host ::ng-deep .p-button:not(:disabled):hover {
+  background-color: #d684fd !important;
+  color: var(--color-white);
+  border: none;
+}

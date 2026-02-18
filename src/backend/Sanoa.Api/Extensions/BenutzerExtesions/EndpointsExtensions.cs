@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SanoaAPI.Benutzer.Avatar.Services;
-using SanoaAPI.Benutzers.Models;
+﻿using SanoaAPI.Benutzers.Models;
 using SanoaAPI.Benutzers.Services.Contracts;
 
 namespace SanoaAPI.Extensions.BenutzerExtesions;
@@ -25,13 +23,5 @@ public static class EndpointsExtensions
             {
                 benutzerService.BenutzerHinzufuegen(benutzer);
             });
-    }
-
-    public static void AvartarBenutzer(this WebApplication app)
-    {
-        app.MapPost("/avatarBildUpload",
-            ([FromForm] IFormFile file ,IBenutzerAvatarService benutzerAvatarService) => {
-                benutzerAvatarService.SpeicherBildImOrdner(file);
-            }).DisableAntiforgery();
     }
 }

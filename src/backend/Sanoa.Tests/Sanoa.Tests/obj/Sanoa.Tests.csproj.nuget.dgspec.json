@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj": {}
+    "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj": {
+    "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj",
+        "projectUniqueName": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj",
         "projectName": "Sanoa.Api",
-        "projectPath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj",
+        "projectPath": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj",
         "packagesPath": "C:\\Users\\timlu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Api\\obj\\",
+        "outputPath": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\timlu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\timlu\\.dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -500,14 +500,14 @@
         }
       }
     },
-    "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj": {
+    "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj",
         "projectName": "Sanoa.Tests",
-        "projectPath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj",
+        "projectPath": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj",
         "packagesPath": "C:\\Users\\timlu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\obj\\",
+        "outputPath": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\timlu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -522,8 +522,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj": {
-                "projectPath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj"
+              "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj": {
+                "projectPath": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Api\\Sanoa.Api.csproj"
               }
             }
           }
@@ -581,7 +581,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\timlu\\.dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
