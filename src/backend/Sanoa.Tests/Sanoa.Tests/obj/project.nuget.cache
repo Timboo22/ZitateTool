@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yU6R1/ZSd2U=",
+  "dgSpecHash": "3vpl7QygOEY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\timlu\\RiderProjects\\ZitateTool\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj",
+  "projectFilePath": "C:\\Users\\timlu\\RiderProjects\\Sanoa\\src\\backend\\Sanoa.Tests\\Sanoa.Tests\\Sanoa.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\timlu\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\timlu\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
