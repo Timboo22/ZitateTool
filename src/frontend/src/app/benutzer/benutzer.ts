@@ -19,14 +19,6 @@ interface PersonenModel {
   Name: string | undefined;
   Lehrjahr: number;
   LieblingsZitat: string;
-  AvatarFileName : string;
-}
-
-interface SuchePersonenModel {
-  id: number;
-  name: string;
-  avatarFileName: string,
-  Lehrjahr: number;
 }
 
 @Component({
@@ -45,7 +37,6 @@ export class Benutzer {
     Name: '' ,
     Lehrjahr: 1,
     LieblingsZitat: '',
-    AvatarFileName: '',
   });
 
   constructor(
@@ -55,11 +46,7 @@ export class Benutzer {
 
   lehrjahre : number[] = [1 , 2 , 3] ;
 
-  avatarFile = signal<FormData | null>(null);
-
   avatarPrieview = signal<string | null>("https://www.shutterstock.com/image-vector/default-avatar-social-media-display-600nw-2632690107.jpg");
-
-  items = signal<PersonenModel[]>([]);
 
   keyWord = "https://www.shutterstock.com/image-vector/default-avatar-social-media-display-600nw-2632690107.jpg";
 
@@ -68,12 +55,6 @@ export class Benutzer {
   public TriggerNameValidatorDown(){
     this.triggerNameValidator = !this.personenModelWritableSignal().Name;
   }
-
-  LoeschenAbfrageSichtbarkeit: boolean = false;
-  BearbeitenAbfrageSichtbarkeit: boolean = false;
-
-
-
 
 
   public ErstelleBenutzer()  {
@@ -94,8 +75,6 @@ export class Benutzer {
       })
     }
 
-    if(this.personenModelWritableSignal().Name && !this.avatarPrieview()?.includes(this.keyWord))
-    {
       this.httpClient.post("http://localhost:5202/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
       this.messageService.add({
         key: "toestBenutzerErstellen",
@@ -109,8 +88,8 @@ export class Benutzer {
         Name: '',
         Lehrjahr: 1,
         LieblingsZitat: '',
-        AvatarFileName: '',
       });
-    }
-  }
-}
+    }}
+
+
+

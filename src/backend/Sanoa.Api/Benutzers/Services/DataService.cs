@@ -3,6 +3,7 @@
 public class DataService : IDataService
 {
     private readonly ContextDb _context;
+    private IDataService _dataServiceImplementation;
 
     public DataService(ContextDb context)
     {
@@ -14,6 +15,7 @@ public class DataService : IDataService
     public IQueryable<T> GetAll<T>() where T : class => _context.Set<T>();
     
     public void Remove<T>(T entity) where T : class => _context.Remove(entity);
-    
+    public void FirstOrDefault<T>(T entity) where T : class => _dataServiceImplementation.FirstOrDefault(entity);
     public void Save() => _context.SaveChanges();
+    
 }

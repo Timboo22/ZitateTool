@@ -10,4 +10,6 @@ public class ContextDb : DbContext
 
     public DbSet<Benutzers.Models.Benutzer> Benutzer { get; set; }
     public DbSet<Zitate> Zitate { get; set; }
+    
+    public DbSet<UserAuth> UserAuth { get; set; }
 }

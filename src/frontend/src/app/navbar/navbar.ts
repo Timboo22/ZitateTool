@@ -21,7 +21,7 @@ export class Navbar implements OnInit {
           {
             label: 'Zitate Übersicht',
             icon: 'pi pi-bookmark-fill',
-            routerLink: '/'
+            routerLink: '/Home'
           },
           {
             label: 'Benutzer',

@@ -11,8 +11,6 @@ public class Benutzer
     public int Lehrjahr { get; set; }
 
     public string LieblingsZitat { get; set; }
-    
-    public string AvatarFileName { get; set; }
 
     public ICollection<Zitate> Zitate { get; set; } = new List<Zitate>();
     

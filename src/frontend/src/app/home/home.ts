@@ -23,7 +23,6 @@ interface PersonenModel {
   Name: string | undefined;
   Lehrjahr: number;
   LieblingsZitat: string;
-  AvatarFileName : string;
 }
 
 @Component({

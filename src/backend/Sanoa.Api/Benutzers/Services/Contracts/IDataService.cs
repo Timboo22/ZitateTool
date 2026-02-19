@@ -10,5 +10,7 @@ public interface IDataService
     
     void Remove<T>(T entity) where T : class;
     
+    void FirstOrDefault <T>(T entity) where T : class;
+    
     void Save();
 }
