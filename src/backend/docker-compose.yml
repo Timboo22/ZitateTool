@@ -18,7 +18,7 @@ services:
     container_name: app
     restart: always
     build:
-      context: ./backend.Api
+      context: ./Sanoa.Api
       dockerfile: Dockerfile
     depends_on:
       - db
@@ -28,6 +28,6 @@ services:
     ports:
       - "5000:8080"
     volumes:
-      - ./backend.Api:/src
+      - ./Sanoa.Api:/src
 volumes:
   postgres_data:
