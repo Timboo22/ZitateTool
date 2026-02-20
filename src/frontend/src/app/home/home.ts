@@ -5,11 +5,11 @@ import {TableModule} from 'primeng/table';
 import {HttpClient} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {MessageService} from 'primeng/api';
-import {Toast} from 'primeng/toast';
 import {Select} from 'primeng/select';
-import {JsonPipe, NgOptimizedImage} from '@angular/common';
 import {Textarea} from 'primeng/textarea';
 import {Button} from 'primeng/button';
+import {environment} from '../../environments/environment';
+
 
 interface Zitat {
   id: number;
@@ -28,7 +28,6 @@ interface PersonenModel {
 @Component({
   selector: 'app-home',
   imports: [
-    InputText,
     TableModule,
     FormsModule,
     Select,
@@ -41,6 +40,8 @@ interface PersonenModel {
 })
 export class Home {
 
+  private baseUrl = environment.apiUrl;
+
   zitat = signal<Zitat>({id: 0,zitateName :"", BenutzerId:0, benutzerName : "", });
 
   gefundeneZitate = signal<Zitat[]>([]);
@@ -48,7 +49,6 @@ export class Home {
   aktuelleZitate = computed(() =>
     this.gefundeneZitate().slice(-4)
   );
-
 
   items = signal<PersonenModel[]>([]);
 
@@ -62,7 +62,7 @@ export class Home {
     this.HoleExistierendeBenutzer();
   }
   public ErstelleZitat() {
-    this.httpClient.post("http://localhost:5202/erstelleZitat", this.zitat()).subscribe((res : any) =>{
+    this.httpClient.post(this.baseUrl + "/erstelleZitat", this.zitat()).subscribe((res : any) =>{
       this.gefundeneZitate.update(list => [...list, res])
       this.HoleZitateAusDb();
     });
@@ -81,12 +81,12 @@ export class Home {
     })
   }
   private  HoleZitateAusDb() {
-    this.httpClient.get<Zitat[]>("http://localhost:5202/holeZitate").subscribe((res: any) => {
+    this.httpClient.get<Zitat[]>(this.baseUrl + "/holeZitate").subscribe((res: any) => {
       this.gefundeneZitate.set(res);
     });
   }
   private HoleExistierendeBenutzer () {
-    this.httpClient.get<PersonenModel[]>('http://localhost:5202/holeExistierendenNutzer').subscribe((res : any) =>{
+    this.httpClient.get<PersonenModel[]>(this.baseUrl +'/holeExistierendenNutzer').subscribe((res : any) =>{
       this.items.set(res);
     });
   }

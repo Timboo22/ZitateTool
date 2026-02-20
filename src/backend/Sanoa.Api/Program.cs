@@ -1,23 +1,30 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using SanoaAPI;
+using SanoaAPI.Benutzers.Models.Settings;
+using SanoaAPI.Benutzers.Services;
 using SanoaAPI.Benutzers.Services.Contracts;
-using SanoaAPI.DTOs;
 using SanoaAPI.Extensions;
 using SanoaAPI.Extensions.BenutzerExtesions;
+using SanoaAPI.Extensions.LoginExtensions;
 using SanoaAPI.Extensions.ZitateExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IBenutzerService, BenutzerService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IDataService, DataService>();
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
+
+
+// builder.Services.AddScoped<IDataService, DataService>();
 builder.Services.AddDbContext<ContextDb>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+
+var tokenSettings = builder.Configuration.GetSection("TokenSettings").Get<TokenSettings>();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -31,9 +38,9 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = "http://localhost:5202",
+        ValidIssuer = tokenSettings?.ValidIssuer,
         ValidAudience = "token",
-        IssuerSigningKey = new SymmetricSecurityKey("ein_sehr_geheimer_und_langer_schluessel_mit_mindestens_32_zeichen"u8.ToArray())
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenSettings.IssuerSigningKey)),
     };
 });
 
@@ -50,7 +57,6 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
-
 
 
 var app = builder.Build();
@@ -74,29 +80,8 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseHttpsRedirection();
 
-app.MapPost("auth/login", (loginParms loginParms, ContextDb dataService) =>
-{
-    var gefundenerNutzer = dataService.UserAuth.FirstOrDefault(s => s.username == loginParms.username);
-    var passwort = builder.Configuration.GetSection("PasswordForValidUser").Value;
 
-    if (gefundenerNutzer == null || loginParms.password != passwort)
-        return Results.BadRequest("Falsche Anmedlung");
-    
-    var key = new SymmetricSecurityKey("ein_sehr_geheimer_und_langer_schluessel_mit_mindestens_32_zeichen"u8.ToArray());
-    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-    
-    var token = new JwtSecurityToken(
-        issuer: "http://localhost:5202",
-        audience: "token",
-        claims: new List<Claim>(),
-        expires: DateTime.Now.AddMinutes(30),
-        signingCredentials: creds);
-    
-    var tokenString =  new JwtSecurityTokenHandler().WriteToken(token);
-
-    return Results.Ok(new {Token = tokenString});
-});
-
+app.LoginEndpoint();
 app.BenutzerEndpoints();
 app.ZitateEndpoints();
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using System.Linq.Expressions;
 
 namespace SanoaAPI.Benutzers.Services.Contracts;
 
@@ -9,8 +9,8 @@ public interface IDataService
     void Add<T>(T entity) where T : class;
     
     void Remove<T>(T entity) where T : class;
-    
-    void FirstOrDefault <T>(T entity) where T : class;
+
+    T? FirstOrDefault<T>(Expression<Func<T, bool>> predicate) where T : class;
     
     void Save();
 }

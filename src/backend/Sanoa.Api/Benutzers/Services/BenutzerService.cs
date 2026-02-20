@@ -1,6 +1,8 @@
 ﻿using SanoaAPI.Benutzers.Models;
 using SanoaAPI.Benutzers.Services.Contracts;
 
+namespace SanoaAPI.Benutzers.Services;
+
 public class BenutzerService : IBenutzerService
 {
     private readonly IDataService _db;

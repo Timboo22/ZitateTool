@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace SanoaAPI.Benutzers.Models;
+﻿namespace SanoaAPI.Benutzers.Models;
 
 public class Zitate
 { 

@@ -6,13 +6,10 @@ import {InputText} from 'primeng/inputtext';
 import {Select} from 'primeng/select';
 import {InputGroup} from 'primeng/inputgroup';
 import {InputGroupAddon} from 'primeng/inputgroupaddon';
-import {Textarea} from 'primeng/textarea';
 import {HttpClient} from '@angular/common/http';
 import {Button} from 'primeng/button';
-import {FileUpload} from 'primeng/fileupload';
-import {Dialog} from 'primeng/dialog';
 import {MessageService} from 'primeng/api';
-import {Toast} from 'primeng/toast';
+import {environment} from '../../environments/environment';
 
 interface PersonenModel {
   Id: number;
@@ -24,13 +21,15 @@ interface PersonenModel {
 @Component({
   selector: 'app-benutzer',
   imports: [ScrollPanelModule,
-    DatePickerModule, FormsModule, InputText, Select, InputGroup, InputGroupAddon, Textarea, Button, FileUpload, Dialog, Toast],
+    DatePickerModule, FormsModule, InputText, Select, InputGroup, InputGroupAddon, Button],
   templateUrl: './benutzer.html',
   styleUrl: './benutzer.css',
   providers: [MessageService],
 })
 
 export class Benutzer {
+
+  private baseUrl = environment.apiUrl;
 
   personenModelWritableSignal = signal<PersonenModel>({
     Id: 0,
@@ -46,16 +45,11 @@ export class Benutzer {
 
   lehrjahre : number[] = [1 , 2 , 3] ;
 
-  avatarPrieview = signal<string | null>("https://www.shutterstock.com/image-vector/default-avatar-social-media-display-600nw-2632690107.jpg");
-
-  keyWord = "https://www.shutterstock.com/image-vector/default-avatar-social-media-display-600nw-2632690107.jpg";
-
   triggerNameValidator = false;
 
   public TriggerNameValidatorDown(){
     this.triggerNameValidator = !this.personenModelWritableSignal().Name;
   }
-
 
   public ErstelleBenutzer()  {
     if(!this.personenModelWritableSignal().Name) {
@@ -66,16 +60,7 @@ export class Benutzer {
         detail: 'Bitte wähle einen Namen aus',
       })
     }
-    if(this.avatarPrieview()?.includes(this.keyWord)) {
-      this.messageService.add({
-        key: "fehlerBeimBenutzerErstellen",
-        severity: 'error',
-        summary: 'Fehler',
-        detail: 'Bitte wähle ein Profilbild aus',
-      })
-    }
-
-      this.httpClient.post("http://localhost:5202/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
+      this.httpClient.post(this.baseUrl + "/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
       this.messageService.add({
         key: "toestBenutzerErstellen",
         severity: 'success',

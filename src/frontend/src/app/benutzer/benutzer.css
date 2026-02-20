@@ -29,3 +29,28 @@
 h2 {
   color: #d684fd;
 }
+
+:host ::ng-deep .p-inputtext:enabled:hover {
+  border-color: #d684fd !important;
+}
+
+:host ::ng-deep .p-inputtext:enabled:focus {
+  border-color: #8601ba !important;
+  box-shadow: 0 0 0 0.2rem rgba(134, 1, 186, 0.25) !important;
+}
+
+:host ::ng-deep .p-select:not(.p-disabled):hover {
+  border-color: #d684fd !important;
+  z-index: 1;
+}
+
+:host ::ng-deep .p-select:not(.p-disabled).p-focus {
+  border-color: #8601ba !important;
+  box-shadow: 0 0 0 0.2rem rgba(134, 1, 186, 0.25) !important;
+  z-index: 2;
+}
+
+:host ::ng-deep .p-inputgroup:has(.p-focus) .p-inputgroup-addon {
+  border-color: #8601ba !important;
+  color: #8601ba;
+}

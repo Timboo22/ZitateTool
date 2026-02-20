@@ -1,5 +1,6 @@
 ﻿using NSubstitute;
 using SanoaAPI.Benutzers.Models;
+using SanoaAPI.Benutzers.Services;
 using SanoaAPI.Benutzers.Services.Contracts;
 
 namespace Sanoa.Tests;

@@ -19,7 +19,7 @@ public static class EndpointsExtensions
         
         
         app.MapPost("/benutzerHinzufuegen",
-            (Benutzers.Models.Benutzer benutzer, IBenutzerService benutzerService) =>
+            (Benutzer benutzer, IBenutzerService benutzerService) =>
             {
                 benutzerService.BenutzerHinzufuegen(benutzer);
             });

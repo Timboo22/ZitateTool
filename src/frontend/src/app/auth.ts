@@ -1,12 +1,14 @@
 import {Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
-  private apiUrl = 'http://localhost:5202/auth/login';
+  private baseUrl = environment.apiUrl;
+  private apiUrl = this.baseUrl + '/auth/login';
 
   currentUserToken = signal<string | null>(localStorage.getItem('token'));
 
