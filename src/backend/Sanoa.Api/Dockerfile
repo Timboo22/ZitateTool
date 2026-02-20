@@ -1,23 +1,26 @@
 # --- STAGE 1: Angular Build ---
 FROM node:22-alpine AS angular-build
 WORKDIR /app
-# Wir gehen zwei Ebenen hoch, um src/frontend zu erreichen
-COPY src/frontend/package*.json ./ 
-# (Hinweis: Wenn Dokploy den Context auf Root setzt, ist dieser Pfad richtig)
+
+# Da Docker in 'src/backend' startet, müssen wir 
+# eine Ebene höher gehen. Das geht NUR, wenn der 
+# Build Context in Dokploy auf 'src' oder '/' steht!
+COPY ../frontend/package*.json ./
 RUN npm install
-COPY src/frontend/ ./
+COPY ../frontend/ ./
 RUN npm run build -- --configuration=production
 
 # --- STAGE 2: .NET Build ---
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-# Pfad zur csproj
-COPY src/backend/Sanoa.Api/Sanoa.Api.csproj src/backend/Sanoa.Api/
-RUN dotnet restore src/backend/Sanoa.Api/Sanoa.Api.csproj
-COPY src/backend/Sanoa.Api/ src/backend/Sanoa.Api/
-WORKDIR /src/src/backend/Sanoa.Api
 
-# Kopiere Angular in den wwwroot (Name prüfen!)
+# Pfade relativ zum Ordner 'src/backend'
+COPY Sanoa.Api/Sanoa.Api.csproj Sanoa.Api/
+RUN dotnet restore Sanoa.Api/Sanoa.Api.csproj
+COPY Sanoa.Api/ Sanoa.Api/
+WORKDIR /src/Sanoa.Api
+
+# Frontend in wwwroot kopieren
 COPY --from=angular-build /app/dist/sanoa-frontend/browser ./wwwroot
 
 RUN dotnet publish -c Release -o /app/publish
