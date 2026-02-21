@@ -1,12 +1,14 @@
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 5px;
+  align-items: center;
   justify-content: center;
-
+  width: 100%;
 }
 .innererContainer {
-  width: 20%;
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 10px;

@@ -62,7 +62,7 @@ export class Benutzer {
     }
       this.httpClient.post(this.baseUrl + "/benutzerHinzufuegen", this.personenModelWritableSignal()).subscribe();
       this.messageService.add({
-        key: "toestBenutzerErstellen",
+        key: "toastBenutzerErstellen",
         severity: 'success',
         summary: 'Success',
         detail: 'Benutzer wurde erstellt',

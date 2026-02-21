@@ -74,7 +74,7 @@ export class Home {
     });
 
     this.messageService.add({
-      key: "toestZitateErstellen",
+      key: "toastZitateErstellen",
       severity: 'success',
       summary: 'Success',
       detail: 'Zitat wurde erstellt',

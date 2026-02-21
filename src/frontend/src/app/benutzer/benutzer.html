@@ -3,19 +3,19 @@
   <div class="headingCenter">
     <h2>Benutzer erstellen</h2>
   </div>
-  <p-inputgroup>
+  <p-inputgroup class="w-full" [style]="{'width': '100%'}">
     <p-inputgroup-addon>
       <i class="pi pi-user"></i>
     </p-inputgroup-addon>
-    <input pInputText [invalid]="triggerNameValidator" [(ngModel)]="personenModelWritableSignal().Name"
+    <input pInputText class="w-full" [invalid]="triggerNameValidator" [(ngModel)]="personenModelWritableSignal().Name"
            (change)="TriggerNameValidatorDown()" maxlength="20" placeholder="Name"/>
   </p-inputgroup>
-  <p-inputgroup>
+  <p-inputgroup class="w-full" [style]="{'width': '100%'}">
     <p-inputgroup-addon>
       <i class="pi pi-graduation-cap"></i>
     </p-inputgroup-addon>
     <p-select [options]="lehrjahre" [(ngModel)]="personenModelWritableSignal().Lehrjahr" [checkmark]="true"
-              [showClear]="true" placeholder="Wähle das Lehrjahr" class="w-full md:w-56"/>
+              [showClear]="true" placeholder="Wähle das Lehrjahr" styleClass="w-full" class="w-full"/>
   </p-inputgroup>
     <p-button (click)="ErstelleBenutzer()">erstellen</p-button>
 </div>

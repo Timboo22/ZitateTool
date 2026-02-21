@@ -27,15 +27,22 @@
             ],
             "styles": [
               "src/styles.css"
-            ]
+            ],
+            "loader": {
+              ".eot": "file",
+              ".woff2": "file",
+              ".woff": "file",
+              ".ttf": "file",
+              ".svg": "file"
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "4MB"
                 },
                 {
                   "type": "anyComponentStyle",

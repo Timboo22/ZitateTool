@@ -66,19 +66,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseHttpsRedirection();
 }
-
-
-app.UseCors("AllowAngular");
-app.UseAuthentication();
-
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(@"C:\Users\timlu\Documents\Sanoa.PictureSave"),
-    RequestPath = "/avatars"
-});
-
-app.UseHttpsRedirection();
 
 
 app.LoginEndpoint();

@@ -1,23 +1,33 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
+# Basis-Image fuer die Runtime (ARM64 kompatibel)
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+# SDK-Image fuer den Build
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+ARG TARGETARCH
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Sanoa.Api.csproj", "./"]
-RUN dotnet restore "Sanoa.Api.csproj"
+
+# Kopiere csproj und restore
+COPY *.csproj ./
+RUN dotnet restore -a $TARGETARCH
+
+# Kopiere alles
 COPY . .
-WORKDIR "/src/"
-RUN dotnet build "./Sanoa.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Sanoa.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+# Baue die App und stelle sicher, dass wwwroot mitkommt
+RUN dotnet publish *.csproj -c $BUILD_CONFIGURATION -o /app/publish -a $TARGETARCH --self-contained false
 
+# Finales Image
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+# Kopiere alles aus dem publish Ordner (inkl. wwwroot, falls vorhanden)
+COPY --from=build /app/publish .
+
+# Stelle sicher, dass der wwwroot Ordner existiert
+COPY --from=build /src/wwwroot ./wwwroot
+
 ENTRYPOINT ["dotnet", "Sanoa.Api.dll"]
