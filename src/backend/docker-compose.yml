@@ -1,9 +1,9 @@
-version: '3.9'
 name: Sanoa
 
 services:
   db:
     image: postgres:16
+    platform: linux/arm64
     container_name: database
     restart: always
     environment:
@@ -17,6 +17,7 @@ services:
 
   app:
     container_name: sanoa_app
+    platform: linux/arm64
     restart: always
     build:
       context: .             
@@ -25,7 +26,8 @@ services:
       - db
     environment:
       - ASPNETCORE_ENVIRONMENT=Production 
-      - ConnectionStrings__Identity=Host=database;Port=5432;Database=identity;Username=user;Password=password
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__Default=Host=database;Port=5432;Database=identity;Username=user;Password=password
     ports:
       - "5000:8080"
 volumes:

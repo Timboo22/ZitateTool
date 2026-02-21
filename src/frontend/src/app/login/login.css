@@ -9,8 +9,10 @@ h1 {
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  width: 30%;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
+  height: 100%;
 }
 
 .einleitung{

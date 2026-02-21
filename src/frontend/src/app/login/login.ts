@@ -20,7 +20,7 @@ interface loginParams {
 })
 export class LoginComponent {
 
-  parms = signal<loginParams>({
+  params = signal<loginParams>({
     username: '',
     password: '',
   })
@@ -28,7 +28,7 @@ export class LoginComponent {
   constructor(public authService: Auth, private router: Router) {}
 
   onLogin() {
-    this.authService.login(this.parms().username, this.parms().password).subscribe({
+    this.authService.login(this.params().username, this.params().password).subscribe({
       next: () => {
         this.router.navigate(['/Home']) ;
       },

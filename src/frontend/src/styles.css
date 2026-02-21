@@ -12,6 +12,42 @@ body{
 .sidenav ul {
   height: 100%;
 }
+
+/* Fix for PrimeNG components to take full width in flex containers where desired */
+p-inputgroup, .p-inputgroup {
+  width: 100%;
+}
+
+/* Ensure the card content is centered */
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep .main-content > .p-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep .main-content .p-card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem !important;
+}
+
+@media (max-width: 768px) {
+  .p-card-body {
+    padding: 1rem !important;
+  }
+  h1 {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
+}
 .sidenav.p-menu {
   border: none;
   padding: 0.5em;
